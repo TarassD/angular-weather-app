@@ -1,64 +1,39 @@
-<div class="container-fluid margin-top-s">
-  <div class="row justify-content-md-center">
-    <div class="col-lg-3 col-md-4 col-sm-12 mb-3" routerLink="/details/10000">
-      <div class="card text-center">
-        <div class="card-body">
-          <h5 class="card-title">City</h5>
-          <img src="assets/img/clear.png" alt="clear" />
-          <h1>&deg;C</h1>
-          <div>Forecast text</div>
+<div class="container-fluid">
+  <div class="row">
+    <h2 class="col-lg-4 offset-lg-1">Dashboard</h2>
+  </div>
+
+  <div class="container-fluid margin-top-s">
+    <div class="row justify-content-md-center">
+      <div
+        *ngFor="let city of cities; index as i"
+        class="col-lg-3 col-md-4 col-sm-12 mb-3"
+        routerLink="/details/{{ city.zip }}"
+      >
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">{{ city.name | uppercase }}</h5>
+            <img
+              src="assets/img/{{ city.icon | lowercase }}.png"
+              alt="{{ city.icon }}"
+            />
+            <h1 *ngIf="unit === 'F'">{{city.tempF}}&deg;F</h1>
+            <h1 *ngIf="unit === 'C'">{{city.tempC}}&deg;C</h1>
+            <div>{{ city.forecast }}</div>
+            <hr />
+            <div class="row position-relative margin-top-s">
+              <div class="col low-temp">
+                <div *ngIf="unit === 'F'">Low: {{ city.tempLowF }}&deg;F</div>
+                <div *ngIf="unit === 'C'">Low: {{ city.tempLowC }}&deg;C</div>
+              </div>
+              <div class="col high-temp">
+                <div *ngIf="unit === 'F'">High: {{ city.tempLowF }}&deg;F</div>
+                <div *ngIf="unit === 'C'">High: {{ city.tempHighC }}&deg;C</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-3 col-md-4 col-sm-12 mb-3" routerLink="/details/10000">
-        <div class="card text-center">
-          <div class="card-body">
-            <h5 class="card-title">City</h5>
-            <img src="assets/img/cloudy.png" alt="cloudy" />
-            <h1>&deg;C</h1>
-            <div>Forecast text</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-12 mb-3" routerLink="/details/10000">
-        <div class="card text-center">
-          <div class="card-body">
-            <h5 class="card-title">City</h5>
-            <img src="assets/img/partly_cloudy.png" alt="partly_cloudy" />
-            <h1>&deg;C</h1>
-            <div>Forecast text</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-12 mb-3" routerLink="/details/10000">
-        <div class="card text-center">
-          <div class="card-body">
-            <h5 class="card-title">City</h5>
-            <img src="assets/img/rain.png" alt="rain" />
-            <h1>&deg;C</h1>
-            <div>Forecast text</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-12 mb-3" routerLink="/details/10000">
-        <div class="card text-center">
-          <div class="card-body">
-            <h5 class="card-title">City</h5>
-            <img src="assets/img/snow.png" alt="snow" />
-            <h1>&deg;C</h1>
-            <div>Forecast text</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-12 mb-3" routerLink="/details/10000">
-        <div class="card text-center">
-          <div class="card-body">
-            <h5 class="card-title">City</h5>
-            <img src="assets/img/clear.png" alt="clear" />
-            <h1>&deg;C</h1>
-            <div>Forecast text</div>
-          </div>
-        </div>
-      </div>
   </div>
 </div>

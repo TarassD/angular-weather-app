@@ -6,10 +6,10 @@
     </div>
     <div class="p-2">
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <input type="checkbox" class="btn-check" id="celsius" autocomplete="off" checked />
-        <label class="btn btn-primary" for="celsius">Celsius</label>
-        <input type="checkbox" class="btn-check" name="options" id="fahrenheit" autocomplete="off" />
-        <label class="btn btn-primary" for="fahrenheit">Fahrenheit</label>
+        <input type="checkbox" class="btn-check" name="fahrenheit" id="fahrenheit" autocomplete="off" checked/>
+        <label class="btn btn-primary" for="fahrenheit" (click)="setFahrenheit()">&deg;F</label>
+        <input type="checkbox" class="btn-check" name="celsius" id="celsius" autocomplete="off" />
+        <label class="btn btn-primary" for="celsius" (click)="setCelsius()">&deg;C</label>
       </div>
     </div>
     <div class="p-2">
